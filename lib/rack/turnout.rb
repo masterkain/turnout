@@ -14,7 +14,7 @@ class Rack::Turnout
     reload_settings
 
     if on?
-      [ 503, { 'Content-Type' => 'text/html', 'Content-Length' => content_length }, [content] ]
+      [ 302, { 'Content-Type' => 'text/html','Location' => 'maintenance.audiobox.fm'}, ['302 found'] ]
     else
       @app.call(env)
     end
